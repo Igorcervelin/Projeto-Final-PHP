@@ -59,24 +59,24 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Sair') }}
                                      </a>
-                                    <a class="dropdown-item" href="/state"
+                                    <a class="dropdown-item" href="/student"
                                     onclick="event.preventDefault();
                                                   document.getElementById('edit-form').submit();">
-                                     {{ __('Estado') }}
+                                     {{ __('Estudantes') }}
                                     </a>
-                                    <a class="dropdown-item" href="/city"
+                                    <a class="dropdown-item" href="/course"
                                     onclick="event.preventDefault();
                                                 document.getElementById('get-form').submit();">
-                                    {{ __('Cidade') }}
+                                    {{ __('Curso') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-                                    <form id="edit-form" action="/state"  style="display: none;">
+                                    <form id="edit-form" action="/student"  style="display: none;">
                                         @csrf
                                     </form>
-                                    <form id="get-form" action="/city"  style="display: none;">
+                                    <form id="get-form" action="/course"  style="display: none;">
                                         @csrf
                                     </form>
                                 </div>

@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
+use App\User;
+use App\Course;
+use pagination;
 use App\Student;
-use App\State;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
 {
@@ -17,16 +20,22 @@ class StudentController extends Controller
     public function index()
     {
 
-        $student = DB::table('students')->join('course', 'students.course_id', '=', 'course.id')
-            ->select('students.id','students.nome_ci')->get();
-
-        return view('student/index', ['student' => $student]);
+       $user = Auth::User();
+        
+        if($user->admin){
+            $student = User::paginate(1);
+            
+            return view('admin/students/index', ['student' => $student]);
+        }else{
+            
+            return view('students/profile', ['student' => $user]);
+        }
     }
 
     public function create() 
     {
-        $course = Course::all();
-        return view('student/new', ['courses' => $course]);
+        $student = User::all();
+        return view('student/new', ['student' => $student]);
     }
 
     public function store(Request $request) 
@@ -79,10 +88,10 @@ class StudentController extends Controller
     }
 
     public function destroy($id) {
-        $p = Student::findOrFail($id);
+        $p = User::findOrFail($id);
         $p->delete();
 
-        \Session::flash('status', 'Aluno excluída com sucesso.');
+        \Session::flash('status', 'Aluno excluído com sucesso.');
         return redirect('/student');
     }
 }

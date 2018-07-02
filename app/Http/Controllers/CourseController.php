@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use auth;
+use App\User;
 use App\Course;
+use App\Student;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class CourseController extends Controller
 {
@@ -14,14 +19,20 @@ class CourseController extends Controller
 
     public function index()
     {
-        $course = Course::all();
+        $user = Auth::User();
+        $course = Course::paginate(1);
 
-        return view('Course/index', ['Course' => $course]);
+        if($user->admin){
+            
+            return view('admin/courses/index', ['course' => $course]);
+        }else{
+            return view('students/index',['course'=>$course]);
+        } 
     }
 
     public function create() 
     {
-        return view('Course/new');
+        return view('admin/courses/new');
     }
 
     public function store(Request $request) 

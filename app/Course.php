@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
-    protected $fillable = ['curso'];
+
     public function student(){
-        return $this->hasMany(Students::class);
+        return $this->belongsToMany(User::class,'enrollments', 'user_id', 'course_id')->withPivot('authorized','id')->withTimestamps();
     }
 }
