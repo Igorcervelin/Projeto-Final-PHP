@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    Edição de Curso                    
+                    EDIÇÃO DE CURSO!                    
                 </div>
 
                 <div class="card-body">
@@ -17,34 +17,33 @@
                     @endif
 
                     {!! Form::open(['url' => "/course/$course->id", 'method' => 'put']) !!}
-                    <div class="form-group row">
-                        {{ Form::label('course', 'Nome:', ['class' => 'col-sm-2 col-form-label col-form-label-sm']) }}
-                        <div class="col-sm-10">
-                            {{ Form::text('course', $course->course, ['class' => 'form-control form-control-sm'] ) }}
+                        <div class="form-group row">
+                            {{ Form::label('nome', 'Nome do Curso:', ['class' => 'col-sm-2 col-form-label col-form-label-sm']) }}
+                            <div class="col-sm-10">
+                                {{ Form::text('nome', $course->nome, ['class' => 'form-control form-control-sm'] ) }}
+                            </div>
                         </div>
-                    </div>
 
-                    {!! Form::open(['url' => "/course/$course->id", 'method' => 'put']) !!}
-                    <div class="form-group row">
-                        {{ Form::label('ementa', 'Ementa:', ['class' => 'col-sm-2 col-form-label col-form-label-sm']) }}
-                        <div class="col-sm-10">
-                            {{ Form::text('ementa', $course->ementa, ['class' => 'form-control form-control-sm'] ) }}
+                        <div class="form-group row">
+                            {{ Form::label('ementa', 'ementa:', ['class' => 'col-sm-2 col-form-label col-form-label-sm']) }}
+                            <div class="col-sm-10">
+                                {{ Form::text('ementa', $course->ementa, ['class' => 'form-control form-control-sm'] ) }}
+                            </div>
                         </div>
-                    </div>
 
-                    {!! Form::open(['url' => "/course/$course->id", 'method' => 'put']) !!}
-                    <div class="form-group row">
-                        {{ Form::label('max_aluno', 'Máximo de alunos:', ['class' => 'col-sm-2 col-form-label col-form-label-sm']) }}
-                        <div class="col-sm-10">
-                            {{ Form::text('max_aluno', $course->max_aluno, ['class' => 'form-control form-control-sm'] ) }}
+                        <div class="form-group row">
+                            {{ Form::label('qtdAlunos', 'qtdAlunos:', ['class' => 'col-sm-2 col-form-label col-form-label-sm']) }}
+                            <div class="col-sm-10">
+                                {{ Form::number('qtdAlunos', $course->qtdAlunos, ['class' => 'form-control form-control-sm'] ) }}
+                            </div>
                         </div>
-                    </div>
 
-                     <div class="form-group row">
-                        <div class="col-sm-12">
-                        <button type="submit" class="btn btn-primary">Salvar</button>
+                         <div class="form-group row">
+                            <div class="col-sm-12">
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                            </div>
                         </div>
-                    </div>
+
                     {!! Form::close() !!}
                 </div>
             </div>

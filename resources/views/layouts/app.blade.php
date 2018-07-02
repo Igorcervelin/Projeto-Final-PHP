@@ -54,21 +54,36 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Sair') }}
-                                     </a>
+                                    @if(Auth::user()->admin)
                                     <a class="dropdown-item" href="/student"
                                     onclick="event.preventDefault();
                                                   document.getElementById('edit-form').submit();">
                                      {{ __('Estudantes') }}
                                     </a>
+                                    @else
+                                        <a class="dropdown-item" href="/student"
+                                        onclick="event.preventDefault();
+                                                  document.getElementById('edit-form').submit();">
+                                        {{ __('Perfil') }}
+                                        </a>                                    
+                                    @endif
                                     <a class="dropdown-item" href="/course"
                                     onclick="event.preventDefault();
                                                 document.getElementById('get-form').submit();">
-                                    {{ __('Curso') }}
+                                    {{ __('Cursos') }}
                                     </a>
+                                    <a class="dropdown-item" href="/enrollment"
+                                    onclick="event.preventDefault();
+                                                document.getElementById('enroll-form').submit();">
+                                    {{ __('Matrículas') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                    {{ __('Sair') }}
+                                    </a>                                    
+                                    
+                                    
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
@@ -77,6 +92,9 @@
                                         @csrf
                                     </form>
                                     <form id="get-form" action="/course"  style="display: none;">
+                                        @csrf
+                                    </form>
+                                    <form id="enroll-form" action="enrollment"  style="display: none;">
                                         @csrf
                                     </form>
                                 </div>

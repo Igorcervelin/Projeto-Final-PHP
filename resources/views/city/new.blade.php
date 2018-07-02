@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    NOVO CURSO!                    
+                    CADASTRO DE CIDADE                    
                 </div>
 
                 <div class="card-body">
@@ -16,27 +16,31 @@
                         </div>
                     @endif
 
-                    {!! Form::open(['url' => '/course', 'method' => 'post']) !!}
+                    {!! Form::open(['url' => '/city', 'method' => 'post']) !!}
                         <div class="form-group row">
-                            {{ Form::label('nome', 'Nome do Curso:', ['class' => 'col-sm-2 col-form-label col-form-label-sm']) }}
+                            {{ Form::label('nome', 'Nome:', ['class' => 'col-sm-2 col-form-label col-form-label-sm']) }}
                             <div class="col-sm-10">
                                 {{ Form::text('nome', null, ['class' => 'form-control form-control-sm'] ) }}
                             </div>
                         </div>
-
                         <div class="form-group row">
-                            {{ Form::label('ementa', 'ementa:', ['class' => 'col-sm-2 col-form-label col-form-label-sm']) }}
+                            {{ Form::label('habitante', 'Habitantes:', ['class' => 'col-sm-2 col-form-label col-form-label-sm']) }}
                             <div class="col-sm-10">
-                                {{ Form::text('ementa', null, ['class' => 'form-control form-control-sm'] ) }}
+                                {{ Form::Number('habitante', null, ['class' => 'form-control form-control-sm'] ) }}
                             </div>
                         </div>
-
                         <div class="form-group row">
-                            {{ Form::label('qtdAlunos', 'qtdAlunos:', ['class' => 'col-sm-2 col-form-label col-form-label-sm']) }}
-                            <div class="col-sm-10">
-                                {{ Form::number('qtdAlunos', null, ['class' => 'form-control form-control-sm'] ) }}
+                                {{ Form::label('estado', 'Selecione um estado:', ['class' => 'col-sm-2 col-form-label col-form-label-sm']) }}
+                                <div class="col-sm-10">
+                                        <select name="id_estado">';
+                                                <option>Selecione...</option>
+                                                @foreach($states as $p)
+                                                <option value="{{$p->id}}"> {{$p->sigla}} </option>
+                                                @endforeach
+                                        </select>
+                                </div>
                             </div>
-                        </div>
+                        
 
                          <div class="form-group row">
                             <div class="col-sm-12">

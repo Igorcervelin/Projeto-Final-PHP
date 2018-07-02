@@ -7,32 +7,29 @@
             <div class="card">
                 <div class="card-header">
                     Cursos!
-                    <a href="/course/create" class="float-right btn btn-success">Novo Curso</a>
+                    <a href="/students/registers" class="float-right btn btn-success">Minhas Matrículas</a>
                 </div>
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success">
+                        <div class="alert alert-danger">
                             {{ session('status') }}
                         </div>
                     @endif
 
                     <table class="table">
                         <tr>
-                            <th>ID</th>
                             <th>Nome</th>
-                            <th>ementa</th>
-                            <th>qtdAlunos</th>
-                            <th>Ações</th>                            
+                            <th>Ementa</th>
+                            <th>Quantidade de Alunos</th>      
+                            <th>ações</th>                      
                         </tr>
                         @foreach($course as $p)
                             <tr>
-                                <td>{{ $p->id }}</td>
                                 <td>{{ $p->nome }}</td>
                                 <td>{{ $p->ementa }}</td>
                                 <td>{{ $p->qtdAlunos }}</td>
                                 <td>
-                                    <a href="/course/{{ $p->id }}/edit" class="btn btn-warning">Editar</a>
-                                    <a href="/course/{{ $p->id }}/delete" class="btn btn-danger">Remover</a>
+                                    <a href="students/{{$p->id}}/enroll" class="btn btn-warning">matricular-se</a>
                                 </td>
                             </tr>
                         @endforeach

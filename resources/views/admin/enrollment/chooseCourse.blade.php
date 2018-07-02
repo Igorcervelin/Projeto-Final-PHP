@@ -6,8 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    Cursos!
-                    <a href="/course/create" class="float-right btn btn-success">Novo Curso</a>
+                Escolha o curso que deseja matricular o aluno!                    
                 </div>
                 <div class="card-body">
                     @if (session('status'))
@@ -31,8 +30,7 @@
                                 <td>{{ $p->ementa }}</td>
                                 <td>{{ $p->qtdAlunos }}</td>
                                 <td>
-                                    <a href="/course/{{ $p->id }}/edit" class="btn btn-warning">Editar</a>
-                                    <a href="/course/{{ $p->id }}/delete" class="btn btn-danger">Remover</a>
+                                    <a href="/admin/enroll/{{$p->id}}/{{$student->id}}" class="btn btn-warning">Matricular</a>                                
                                 </td>
                             </tr>
                         @endforeach

@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    NOVO CURSO!                    
+                    CADASTRO DE ESTADO                    
                 </div>
 
                 <div class="card-body">
@@ -16,25 +16,18 @@
                         </div>
                     @endif
 
-                    {!! Form::open(['url' => '/course', 'method' => 'post']) !!}
+                    {!! Form::open(['url' => '/state', 'method' => 'post']) !!}
                         <div class="form-group row">
-                            {{ Form::label('nome', 'Nome do Curso:', ['class' => 'col-sm-2 col-form-label col-form-label-sm']) }}
+                            {{ Form::label(' ', 'Nome:', ['class' => 'col-sm-2 col-form-label col-form-label-sm']) }}
                             <div class="col-sm-10">
                                 {{ Form::text('nome', null, ['class' => 'form-control form-control-sm'] ) }}
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            {{ Form::label('ementa', 'ementa:', ['class' => 'col-sm-2 col-form-label col-form-label-sm']) }}
+                            {{ Form::label('sigla', 'Sigla:', ['class' => 'col-sm-2 col-form-label col-form-label-sm']) }}
                             <div class="col-sm-10">
-                                {{ Form::text('ementa', null, ['class' => 'form-control form-control-sm'] ) }}
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            {{ Form::label('qtdAlunos', 'qtdAlunos:', ['class' => 'col-sm-2 col-form-label col-form-label-sm']) }}
-                            <div class="col-sm-10">
-                                {{ Form::number('qtdAlunos', null, ['class' => 'form-control form-control-sm'] ) }}
+                                {{ Form::text('sigla', null, ['class' => 'form-control form-control-sm'] ) }}
                             </div>
                         </div>
 
